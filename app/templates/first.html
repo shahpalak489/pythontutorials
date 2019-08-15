@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>First Page</title>
+</head>
+<body>
+<table id="userdata">
+	<th>Information</th>
+	<tr>
+		<td>First Name</td>
+		<td>Last Name</td>
+		<td>Rank</td>
+		<td><button id="getBtn">Get</button></td>
+		<td><button>Post</button></td>
+	</tr>
+</table>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $('#getBtn').click(function () {
+	    $.ajax({
+	        url: "firstpage",
+	        // url: "firstpage?firstname=akhil",
+	        type: "GET",
+	        dataType: 'json',
+			contentType: 'application/json',
+	        success: function (data, xhr, status) {
+	        	console.log(data)
+	        	var trHTML = '';
+			    $.each(data, function (i, item) {
+			        trHTML += '<tr><td>' + data[i].firstname+ '</td><td>' + data[i].lastname + '</td><td>' + data[i].ID + '</td></tr>';
+			    });
+			    $('#userdata').append(trHTML);
+	        },
+	        error: function (xhr, status) {
+	            alert("Sorry, there was a problem!");
+	        }
+	    });
+	});
+</script>
+</body>
+</html>
