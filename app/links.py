@@ -14,3 +14,8 @@ flask: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello
 uwsgi: https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-14-04
 
 ##source env/Scripts/activate
+
+
+requirements.txt
+git init
+git ignore
