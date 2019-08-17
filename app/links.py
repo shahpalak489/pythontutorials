@@ -17,5 +17,8 @@ uwsgi: https://www.digitalocean.com/community/tutorials/how-to-serve-flask-appli
 
 
 requirements.txt
+$ pip freeze > requirements.txt - starter
+pip install -r requirements.txt - another user
+
 git init
 git ignore
