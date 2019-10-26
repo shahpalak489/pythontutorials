@@ -4,6 +4,7 @@ import pandas as pd
 from app import app
 from flask import jsonify, request
 import json
+import pdb
 
 @app.route('/firstpage')
 def firstpage():
@@ -18,6 +19,6 @@ def firstpage():
 	ResultSet = ResultProxy.fetchall()
 	df = pd.DataFrame(ResultSet, columns=['firstname', 'lastname', 'ID'])
 	# df = df[df['firstname']==name]
-	print(df)
+	pdb.set_trace()
 	jsonData = df.to_json(orient="records")
 	return jsonData 

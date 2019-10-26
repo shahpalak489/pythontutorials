@@ -4,6 +4,6 @@ app = Flask(__name__)
 
 from app import sql_connection
 
-@app.route("/")
+@app.route("/demo")
 def hello():
     return render_template('first.html')
