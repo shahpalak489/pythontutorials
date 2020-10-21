@@ -1,0 +1,44 @@
+REDIS
+
+problem faced::
+
+1) specially i faced problem while using jsonify dataframe or list data while sending back the response to the client
+because decimal and dates are not json serializable so in the starting time it gives me erroe then 
+i realized to change the datatype of that columns so that problem will not come
+
+https://www.sitepoint.com/5-common-problems-faced-by-python-beginners/
+2) Working with Exceptions
+Python is an interpreted language, which means that the code is executed line by line. If an error is encountered on a line, further execution of the code stops. However, you can handle known exceptions in Python using the try-except block. Let’s look at a simple example, by generating a runtime error of dividing by 0:
+
+x = 1/0
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ZeroDivisionError: integer division or modulo by zero
+When the interpreter reaches this line, your program execution stops completely! However, using the try-except block can help avoiding the same.
+
+try:
+     x = 1/0
+ except:
+     print "Some error occurred"
+
+Some error occurred
+When such an error occurs within the try block, the interpreter just executes the except block. The except block can further be extended by catching individual errors:
+
+ try:
+    x = 1/0
+ except ZeroDivisionError:
+     print "You tried to divide by zero"
+ except:
+     print "Some unknown error occurred"
+
+You tried to divide by zero
+You can go one step ahead, catch the exception and further process it (like log the error somewhere) by modifying the except block:
+
+try:
+    x = 1/0
+except Exception as e:
+     print "Exception occurred: " + str(e)
+Exception occurred: integer division or modulo by zero
+
+
+3)Not being type-safe is my biggest concern in large applications and slows me down.

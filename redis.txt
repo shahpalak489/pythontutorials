@@ -1,0 +1,97 @@
+REDIS
+
+Caching is the process of storing some data in Cache. Cache is a temporary storage component area where the data is stored so that in future,
+Data can be served faster.
+For our case, we decided to go with Redis.
+Redis is an open source, in-memory Data Structure Store, used as a database, a caching layer or a message broker. 
+It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with 
+radius queries and streams.
+Redis data structures resolve very complex programming problems with simple commands executed within the data store, reducing coding effort, 
+increasing throughput, and reducing latency.
+
+Sample Redis Commands
+
+SET (Setting a Key)
+SET foo "Hello World"
+OK // setting a key
+
+GET (Getting a Key)
+GET foo
+"Hello World" // getting a key
+
+DEL (Deleting a Key)
+GET foo 
+"Hello World" // getting a key
+
+DEL foo
+(integer) 1 // key just got deleted
+GET foo
+(nil) // since key is deleted therefore, result is nil.
+
+SETEX (Setting a key with an expiry)
+SETEX foo 40 "I said, Hello World!"
+OK // key has been set with 40 seconds as expiration
+
+TTL (Total Time left for a key that has a timeout)
+TTL foo
+(integer) 36 // 36 seconds left to timeout
+
+PERSIST (Removing the timeout from key)
+PERSIST foo
+(integer) 1 // turning the key from volatile to persistent (key won't expire)
+
+RENAME (Renaming the current existing key)
+RENAME foo bar
+OK // renaming the key 'foo' as bar
+
+FLUSHALL (Flushing everything so far saved)
+flushall
+OK // just got flushed
+
+So that was just the introductory part of what you can do with Redis. 
+Redis is extremely powerful and even I am also using on daily basis for faster performance of data being transmitted between the applications.
+In short, Redis is cool.
+
+
+problem faced::
+
+1) specially i faced problem while using jsonify dataframe or list data while sending back the response to the client
+because decimal and dates are not json serializable so in the starting time it gives me erroe then 
+i realized to change the datatype of that columns so that problem will not come
+
+https://www.sitepoint.com/5-common-problems-faced-by-python-beginners/
+2) Working with Exceptions
+Python is an interpreted language, which means that the code is executed line by line. If an error is encountered on a line, further execution of the code stops. However, you can handle known exceptions in Python using the try-except block. Let’s look at a simple example, by generating a runtime error of dividing by 0:
+
+x = 1/0
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ZeroDivisionError: integer division or modulo by zero
+When the interpreter reaches this line, your program execution stops completely! However, using the try-except block can help avoiding the same.
+
+try:
+     x = 1/0
+ except:
+     print "Some error occurred"
+
+Some error occurred
+When such an error occurs within the try block, the interpreter just executes the except block. The except block can further be extended by catching individual errors:
+
+ try:
+    x = 1/0
+ except ZeroDivisionError:
+     print "You tried to divide by zero"
+ except:
+     print "Some unknown error occurred"
+
+You tried to divide by zero
+You can go one step ahead, catch the exception and further process it (like log the error somewhere) by modifying the except block:
+
+try:
+    x = 1/0
+except Exception as e:
+     print "Exception occurred: " + str(e)
+Exception occurred: integer division or modulo by zero
+
+
+3)Not being type-safe is my biggest concern in large applications and slows me down.
